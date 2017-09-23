@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/ly_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black">
+
+        <TextView
+
+            android:id="@+id/txt_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="信息"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_map"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_map"
+            android:text="地图" />
+
+        <RadioButton
+            android:id="@+id/rb_list"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_list"
+            android:text="查询" />
+
+        <RadioButton
+            android:id="@+id/rb_setting"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_setting"
+            android:text="设置" />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="48dp">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8px"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shadow_top_to_bottom"
+            android:layout_gravity="center_horizontal|top" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shadow_bottom_to_top"
+            android:layout_gravity="center_horizontal|bottom" />
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>

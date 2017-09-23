@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#187d7d">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal">
+
+        <Switch
+            android:theme="@style/MySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接收推送"
+            android:id="@+id/ReceivePushSwitch"
+            android:layout_marginTop="105dp"
+            android:checked="false"
+            android:textColor="@color/white"
+            android:singleLine="false"
+            android:showText="false"
+            android:switchPadding="10dp"
+            android:splitTrack="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+       android:paddingTop="270dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+
+
+
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="信工-226 版权所有"
+            android:textColor="@color/white"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:text=" copyright 2016-2017 ics-226.All Rights Reserved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

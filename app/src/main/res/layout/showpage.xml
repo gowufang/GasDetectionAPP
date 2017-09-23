@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#187d7d"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.example.administrator.base.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.example.administrator.base.TitleLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal">
+
+                <TextView
+
+                    android:paddingLeft="10sp"
+                    android:layout_width="wrap_content"
+                    android:textSize="14dp"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="设备编号:"
+                    android:textStyle="bold"
+                    android:layout_weight="0.5"
+
+                    android:textColor="@color/cyan"
+                    android:gravity="center_vertical" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="DEVICE-GD-3"
+                    android:id="@+id/device_code"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/cyan" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    >
+
+                        <TextView
+                            android:paddingLeft="10sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="设备ID:   "
+
+                            android:layout_weight="1"
+                            android:textColor="@color/cyan"
+                            android:gravity="center_vertical"
+
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:id="@+id/textView2" />
+
+                        <TextView
+                            android:id="@+id/device_id"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="27179"
+
+                            android:textColor="@color/cyan"
+                            android:padding="0dp"
+                            android:textSize="14dp"
+                            android:gravity="center_vertical" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="设备名称:"
+
+                            android:layout_weight="1"
+                            android:textColor="@color/cyan"
+                            android:gravity="center_vertical"
+                            android:padding="0dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:id="@+id/textView4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="固定点3"
+                            android:id="@+id/device_name"
+                            android:textColor="@color/cyan"
+                            android:textIsSelectable="false"
+                            android:padding="0dp"
+                            android:textSize="14dp"
+                            android:gravity="left|center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+
+                    android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="经度:   "
+                            android:textSize="14dp"
+                            android:paddingLeft="10sp"
+
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"
+                            android:textColor="@color/cyan"
+                            android:id="@+id/textView" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="121.905124"
+                            android:id="@+id/show_lon"
+                            android:textColor="@color/cyan"
+                            android:gravity="center_vertical" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="纬度:"
+                            android:textSize="14dp"
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"
+                            android:textColor="@color/cyan" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="30.875977"
+                            android:id="@+id/show_lat"
+                            android:textColor="@color/cyan"
+                            android:gravity="left|center" />
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+
+                    >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="备注:"
+                            android:paddingLeft="10sp"
+
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:textColor="@color/cyan"
+                            android:gravity="center_vertical"
+                            android:id="@+id/textView3" />
+
+                        <ScrollView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="这是一条备注信息"
+                                    android:id="@+id/remarks"
+                                    android:gravity="center"
+                                    android:textColor="@color/cyan" />
+
+                        </ScrollView>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp">
+
+                        <TextView
+                            android:text="数据展示"
+                            android:textStyle="bold"
+                            android:textSize="24dp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+
+
+                                <TableLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                        <TableRow>
+                                                <TextView
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_width="0dp"
+                                                    android:layout_weight="2"
+                                                    android:text="时间"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14dp"
+                                                    android:textColor="@color/cyan"
+                                                    android:gravity="center"/>
+                                                <TextView
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_width="0dp"
+                                                    android:layout_weight="1"
+                                                    android:text="Gas1"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14dp"
+                                                    android:textColor="@color/cyan"
+                                                    android:gravity="center"/>
+                                                <TextView
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_width="0dp"
+                                                    android:layout_weight="1"
+                                                    android:text="Gas2"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14dp"
+                                                    android:textColor="@color/cyan"
+                                                    android:gravity="center"/>
+
+
+
+                                        </TableRow>
+
+
+
+                                </TableLayout>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                                <android.support.v4.widget.SwipeRefreshLayout
+                                    android:id="@+id/refresh_list"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                        <ListView
+                                            android:id="@+id/lv_datashow"
+                                            android:dividerHeight="1dip"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                        </ListView>
+
+                                </android.support.v4.widget.SwipeRefreshLayout>
+
+                        </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+        </TableLayout>
+
+
+</LinearLayout>
