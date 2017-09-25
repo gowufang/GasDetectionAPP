@@ -7,10 +7,12 @@
     android:background="#187d7d">
 
     <LinearLayout
+        android:background="#458785"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:layout_gravity="center_vertical"
+        android:padding="5dp">
         <TextView
             android:id="@+id/choose_text"
             android:layout_gravity="center"
@@ -25,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:popupBackground="#187d7d"
+            android:popupBackground="#458785"
           />
 
 
@@ -33,6 +35,8 @@
 
 
     <TableLayout
+
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TableRow>

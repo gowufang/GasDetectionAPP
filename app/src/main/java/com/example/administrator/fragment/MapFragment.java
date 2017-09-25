@@ -155,8 +155,8 @@ private Marker oldMarker;
     public boolean onMarkerClick(Marker marker) {
 
         if (!marker.getPosition().equals(myLatLng)){ //点击的marker不是自己位置的那个marker
-            oldMarker = marker;
-            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_selected));
+//            oldMarker = marker;
+//            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_selected));
             if (oldMarker != null) {
 
                 oldMarker.setIcon(BitmapDescriptorFactory.fromResource(marker_normal));
@@ -177,7 +177,8 @@ private Marker oldMarker;
                 startActivity(showIntent);
 
             }
-
+            oldMarker = marker;
+            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_selected));
         }
 
         return false; //返回 “false”，除定义的操作之外，默认操作也将会被执行
