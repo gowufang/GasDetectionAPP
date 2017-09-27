@@ -35,16 +35,35 @@ public class MapFragment extends Fragment implements AMap.OnMapClickListener, AM
     private RequestQueue requestQueue;
     private MapView mapView;
     private UiSettings uiSettings;
-//    private InfoWinAdapter adapter;
-private Marker oldMarker;
+    //    private InfoWinAdapter adapter;
+    private Marker oldMarker;
     private LatLng myLatLng;
     private AMap aMap;
-    public MapFragment() {}
+    int currentlength = 0;
+    int previouslength = 0;
 
+    public MapFragment() {
+    }
+
+
+//    private Handler handler=new Handler(){
+//
+//        public void handleMessage(Message msg){
+//
+//            previouslength=VolleyUtils.ifDataChanged(DataUrlget);
+//        }
+//    };
+//    private Handler handler2=new Handler(){
+//
+//        public void handleMessage(Message msg){
+//
+//            currentlength=VolleyUtils.ifDataChanged(DataUrlget);
+//        }
+//    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.map_fragment,container,false);
+        View view = inflater.inflate(R.layout.map_fragment, container, false);
 
 
         mapView = (MapView) view.findViewById(R.id.mapView);
@@ -54,17 +73,19 @@ private Marker oldMarker;
 
         return view;
     }
+
     private void initOperation() {
         initMap();
 //        initLocation();
     }
+
     /**
      * 初始化地图
      */
     private void initMap() {
 
         aMap = mapView.getMap();
-        LatLng marker1 = new LatLng(30.882424,121.917593);
+        LatLng marker1 = new LatLng(30.882424, 121.917593);
         //设置中心点和缩放比例
         aMap.moveCamera(CameraUpdateFactory.changeLatLng(marker1));
         aMap.moveCamera(CameraUpdateFactory.zoomTo(12));
@@ -73,7 +94,36 @@ private Marker oldMarker;
         uiSettings.setZoomControlsEnabled(true); //显示缩放控件
         uiSettings.setScaleControlsEnabled(true);//控制比例尺控件是否显示
 //        uiSettings.setZoomGesturesEnabled(false);//关闭手势放缩
-        VolleyUtils.volleyDeviceUtils(DataUrlget,requestQueue,aMap);
+
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Message message=new Message();
+//
+//                while(true){
+//
+//                    handler.sendMessage(message);
+//                    try {
+//                        Thread.sleep(3000);
+//
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    handler2.sendMessage(message);
+//                    if(previouslength!=currentlength){
+//
+//                    }
+//                }
+//
+//            }
+//        }).start();
+
+      /*需要修改下面的函数来增加闪烁功能.
+        * 使用线程设置定时循环任务，
+        * 如果有新的数据，
+        * 坐标会闪动*/
+        VolleyUtils.volleyDeviceUtils(DataUrlget, requestQueue, aMap);
 
 
         aMap.setOnMapClickListener(this);
@@ -114,7 +164,7 @@ private Marker oldMarker;
          aMap.addMarker(markerOptions);*/
     }
 
-    private void addMarkerToMap(LatLng latLng,HashMap<String,String> fixedDeviceInfo){
+    private void addMarkerToMap(LatLng latLng, HashMap<String, String> fixedDeviceInfo) {
         aMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .icon(BitmapDescriptorFactory.fromResource(marker_normal))
@@ -130,6 +180,7 @@ private Marker oldMarker;
             oldMarker.setIcon(BitmapDescriptorFactory.fromResource(marker_normal));
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -150,11 +201,12 @@ private Marker oldMarker;
 
 
     }
+
     //maker的点击事件
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-        if (!marker.getPosition().equals(myLatLng)){ //点击的marker不是自己位置的那个marker
+        if (!marker.getPosition().equals(myLatLng)) { //点击的marker不是自己位置的那个marker
 //            oldMarker = marker;
 //            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker_selected));
             if (oldMarker != null) {
@@ -162,18 +214,18 @@ private Marker oldMarker;
                 oldMarker.setIcon(BitmapDescriptorFactory.fromResource(marker_normal));
 //                Toast.makeText(MainActivity.mContext,"click ",Toast.LENGTH_SHORT).show();
 
-                Intent showIntent=new Intent(MainActivity.mContext,MarkerDetilsActivity.class);
-                Log.d("ShowIntent",showIntent.toString());
-                HashMap<String,String> data=new HashMap<String,String>();
-                data=(HashMap<String, String>) marker.getObject();
-                String decode=data.get("device_code");
-                showIntent.putExtra("device_code",decode);
+                Intent showIntent = new Intent(MainActivity.mContext, MarkerDetilsActivity.class);
+                Log.d("ShowIntent", showIntent.toString());
+                HashMap<String, String> data = new HashMap<String, String>();
+                data = (HashMap<String, String>) marker.getObject();
+                String decode = data.get("device_code");
+                showIntent.putExtra("device_code", decode);
 
                 showIntent.putExtra("device_id", data.get("device_id"));
-                showIntent.putExtra("device_name",data.get("device_name"));
-                showIntent.putExtra("remarks",data.get("remarks")+"this is a remark");
-                showIntent.putExtra("show_lat",data.get("show_lat"));
-                showIntent.putExtra("show_lon",data.get("show_lon"));
+                showIntent.putExtra("device_name", data.get("device_name"));
+                showIntent.putExtra("remarks", data.get("remarks") + "this is a remark");
+                showIntent.putExtra("show_lat", data.get("show_lat"));
+                showIntent.putExtra("show_lon", data.get("show_lon"));
                 startActivity(showIntent);
 
             }

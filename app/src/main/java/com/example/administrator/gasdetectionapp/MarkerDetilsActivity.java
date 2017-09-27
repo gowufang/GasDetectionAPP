@@ -45,7 +45,7 @@ public class MarkerDetilsActivity extends Activity implements SwipeRefreshLayout
     GasDataAdapter adapter;
 
     ListView listView;
-    String GasDataUrl;
+    public static String GasDataUrl;
 private static final int REFRESH_COMPLETE = 0X110;
     private RequestQueue requestQueue;
     private List<GasEntity> gasEntities=new ArrayList<GasEntity>();
@@ -161,23 +161,15 @@ private static final int REFRESH_COMPLETE = 0X110;
 //                                String gas []={"","","","",""};
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
-
-
-
                                 JSONObject gasObject=jsonObject.getJSONObject("gas");
                                 String insert_time=gasObject.getString("insert_time");
                                 String gas1=gasObject.getString("gas1");
                                 String gas2=gasObject.getString("gas2");
-
                                 Log.d("GasData",insert_time+" "+ gas1+" "+gas2);
-
                                 GasEntity gasEntity=new GasEntity(insert_time,gas1,gas2);
-
-//                                initGasEntity(gasEntity);
+//                              initGasEntity(gasEntity);
                                 gasEntities.add(gasEntity);
-
                             }
-
                             PutDataIntoAdapter();
 
                         } catch (JSONException e) {

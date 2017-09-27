@@ -22,6 +22,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.administrator.gasdetectionapp.MarkerDetilsActivity.GasDataUrl;
+
 
 /**
  * Created by Administrator on 2017/8/24.
@@ -29,6 +31,57 @@ import java.util.List;
 
 public class VolleyUtils {
 
+/*
+*
+* 继续写判断插入时间是否变化  0925
+* 如果变化，则闪烁*/
+    private void ifDataChanged(){
+        JsonArrayRequest getJsonArray = new JsonArrayRequest(
+                GasDataUrl,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d("onResp2:", response.toString());
+                        try {
+//                                String gas []={"","","","",""};
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject jsonObject = response.getJSONObject(i);
+
+
+
+                                JSONObject gasObject=jsonObject.getJSONObject("gas");
+                                String insert_time=gasObject.getString("insert_time");
+                                String gas1=gasObject.getString("gas1");
+                                String gas2=gasObject.getString("gas2");
+
+
+                                Log.d("GasData",insert_time+" "+ gas1+" "+gas2);
+
+                                GasEntity gasEntity=new GasEntity(insert_time,gas1,gas2);
+
+//
+
+
+                            }
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d("myMsg.error:", "error");
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Log.e("error.errorListener", volleyError.getMessage(), volleyError);
+                    }
+                }
+        );
+
+    }
     public static void volleyDeviceUtils(String DataUrlget, RequestQueue requestQueue, final AMap aMap){
         JsonArrayRequest getJsonArray = new JsonArrayRequest(
                 DataUrlget,
@@ -37,21 +90,9 @@ public class VolleyUtils {
                     public void onResponse(JSONArray response) {
                         Log.d("onResp:", response.toString());
                         try {
-//                                String gas []={"","","","",""};
+
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
-//                                    int id = jsonObject.getInt("id");
-//                                    String device_id = jsonObject.getString("deviceId");
-//                                    String time = jsonObject.getString("time");
-//                                    Double lon = jsonObject.getDouble("lon");
-//                                    Double lat = jsonObject.getDouble("lat");
-//                                    String gas1 = jsonObject.getString("gas1");
-//                                    String gas2 = jsonObject.getString("gas2");
-//                                    String gas3 = jsonObject.getString("gas3");
-//                                    String gas4 = jsonObject.getString("gas4");
-//                                    String gas5 = jsonObject.getString("gas5");
-//                                    String insert_time = jsonObject.getString("insertTime");
-
 
                                 Double map_lon=jsonObject.getDouble("map_lon");
                                 Double map_lat=jsonObject.getDouble("map_lat");
@@ -66,24 +107,8 @@ public class VolleyUtils {
 
                                 Log.d("fixeddevice",map_lon+ " "+map_lat+" "+device_name+" "+device_code+" "+device_id+" "+remarks+" "+show_lon+" "+show_lat);
 
-//                                    gas[0]=gas1;
-//                                    gas[1]=gas2;
-//                                    gas[2]=gas3;
-//                                    gas[3]=gas4;
-//                                    gas[4]=gas5;
-//                                    Log.d("mygas:",gas[0]+"   "+gas[1]+"   "+gas[2]+"   "+gas[3]+"   "+gas[4]);
-
-
-//                                    Data data = new Data(id, device_id, time, insert_time, lon, lat, gas);
 
                                 FixedDevice fixedDeviceData=new FixedDevice(device_code,device_id,  newResponse,  map_lat,  map_lon,  remarks,  show_lat,  show_lon);
-//                                    HashMap<String,String> gasdata=new HashMap<>();
-//                                    gasdata.put("gas1",data.getGasDatas()[0]);
-//                                    gasdata.put("gas2",data.getGasDatas()[1]);
-//                                    gasdata.put("gas3",data.getGasDatas()[2]);
-//                                    gasdata.put("gas4",data.getGasDatas()[3]);
-//                                    gasdata.put("gas5",data.getGasDatas()[4]);
-//
                                 HashMap<String,String> fixedDeviceInfo=new HashMap<>();
                                 fixedDeviceInfo.put("device_code",fixedDeviceData.getDevice_code());
                                 fixedDeviceInfo.put("device_id", String.valueOf(fixedDeviceData.getDevice_id()));
@@ -105,13 +130,11 @@ public class VolleyUtils {
 //                                            ,gasdata//6
 //
 //                                    );
-
                                 aMap.addMarker(new MarkerOptions()
                                         .position(new LatLng(fixedDeviceData.getMap_lat(),fixedDeviceData.getMap_lon()))
                                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_normal))
                                 ).setObject(fixedDeviceInfo);
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Log.d("myMsg.error:", "error");
@@ -132,6 +155,9 @@ public class VolleyUtils {
         requestQueue.add(getJsonArray);
 
     }
+
+
+
 
 
 
