@@ -1,0 +1,34 @@
+﻿{
+    "devices": [
+        {
+            "map_lon": "121.730053",
+            "map_lat": "31.173661",
+            "device_name": "Google1",
+            "device_code": "Googlecode",
+            "device_id": "GoogleDevice",
+            "remarks": "GoogleRemarks",
+            "show_lon": "121.730053",
+            "show_lat": "31.173661"
+        },
+        {
+            "map_lon": "121.730053",
+            "map_lat": "32.173661",
+            "device_name": "Google2",
+            "device_code": "Googlecode2",
+            "device_id": "GoogleDevice2",
+            "remarks": "GoogleRemarks2",
+            "show_lon": "121.730053",
+            "show_lat": "31.173661"
+        },
+        {
+            "map_lon": "121.730053",
+            "map_lat": "33.173661",
+            "device_name": "Google13",
+            "device_code": "Googlecode3",
+            "device_id": "GoogleDevice3",
+            "remarks": "GoogleRemarks3",
+            "show_lon": "121.730053",
+            "show_lat": "31.173661"
+        }
+    ]
+}
